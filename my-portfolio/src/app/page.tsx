@@ -1,9 +1,11 @@
 'use client';
 
-import { Menu, Github, Linkedin, Mail, Code, Palette, Zap, Globe, ArrowRight, Download, X, ArrowUp } from "lucide-react";
+import { ArrowRight, Download, X, ArrowUp } from "lucide-react";
 import SocialIcon from "./components/SocialIcon/SocialIcon";
 import Skill from "./components/Skill/Skill";
 import { useEffect, useRef, useState } from "react";
+import ProjectSection from "./components/ProjectsSection/ProjectSection";
+import { title } from "process";
 
 export default function Home() {
   const [isOpenNav, setIsOpenNav] = useState(false);
@@ -165,25 +167,7 @@ export default function Home() {
       </section>
 
       {/* Projects */}
-      <section id="projects" className="relative z-10 px-6 md:px-8 lg:px-16 py-20 bg-gray-50 scroll-mt-24">
-        <div className="text-center mb-12">
-          <h2 className="text-4xl md:text-5xl font-bold mb-4 text-gray-900">Featured Projects</h2>
-          <p className="text-lg text-gray-600 max-w-2xl mx-auto">A selection of work that showcases problem solving, performance and polish</p>
-        </div>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-7xl mx-auto">
-          {[1, 2].map((i) => (
-            <div key={i} className="group bg-white rounded-2xl border border-gray-200 hover:border-blue-200 shadow-sm hover:shadow-lg transition-all duration-300 overflow-hidden">
-              <div className="h-40 bg-gradient-to-r from-blue-100 to-cyan-100" />
-              <div className="p-6">
-                <h3 className="text-xl font-semibold text-gray-900 mb-2">Project {i}</h3>
-                <p className="text-gray-600 mb-4">Short description of the project highlighting the stack and impact.</p>
-                <a href="#contact" className="inline-flex items-center text-blue-700 font-medium group-hover:gap-2 transition-all">View more <ArrowRight size={18} className="ml-1" /></a>
-              </div>
-            </div>
-          ))}
-        </div>
-      </section>
-
+      <ProjectSection/>
 
       {/* Education */}
       <section id="education" className="relative z-10 px-6 md:px-8 lg:px-16 py-20 scroll-mt-24">
@@ -215,9 +199,9 @@ export default function Home() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {[
             { icon: 'Code', title: "Frontend Development", desc: "React, Next.js, TypeScript, Tailwind CSS", color: "from-blue-500 to-blue-600" },
-            { icon: 'Palette', title: "UI/UX Design", desc: "Responsive design, modern aesthetics, user-centered approach", color: "from-teal-500 to-teal-600" },
             { icon: 'Zap', title: "Performance", desc: "Optimization, SEO, fast loading times", color: "from-green-500 to-green-600" },
-            { icon: 'Globe', title: "Full-Stack", desc: "Node.js, databases, API development", color: "from-blue-500 to-teal-600" },
+            { icon: 'Globe', title: "Full-Stack", desc: "Node.js, databases, API development", color: "from-red-500 to-orange-600" },
+            {icon: 'GitPullRequest', title: 'Git', desc: "Can use git proficient", color:"from-gray-800 to-gray-800"}
           ].map((skill, index) => (
             <Skill key={index} icon={skill.icon} title={skill.title} color={skill.color} desc={skill.desc} />
           ))}
