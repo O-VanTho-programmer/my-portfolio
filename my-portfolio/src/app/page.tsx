@@ -4,8 +4,6 @@ import { ArrowRight, Download, X, ArrowUp } from "lucide-react";
 import SocialIcon from "./components/SocialIcon/SocialIcon";
 import Skill from "./components/Skill/Skill";
 import { useEffect, useRef, useState } from "react";
-import ProjectSection from "./components/ProjectsSection/ProjectSection";
-import { title } from "process";
 import { Projects } from "@/models/Projects";
 import StockManagementProject from "./components/StockManagementProject/StockManagementProject";
 import CaloriesTracker from "./components/CaloriesTracker/CaloriesTracker";

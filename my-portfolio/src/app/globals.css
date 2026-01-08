@@ -51,6 +51,19 @@ html {
   scroll-behavior: smooth;
 }
 
+
+/* Custom scrollbar for projects section */
+.custom-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+/* Smooth transitions for all elements */
+* {
+  transition-property: transform, opacity, background-color, box-shadow;
+  transition-duration: 300ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
 /* Custom scrollbar */
 ::-webkit-scrollbar {
   width: 8px;
