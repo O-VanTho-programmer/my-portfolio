@@ -6,14 +6,16 @@ type Props = {
     label: string,
     href: string,
     color_hover: string,
+    onClick?: () => void,
 }
 
-export default function SocialIcon({ icon, label, href, color_hover }: Props) {
+export default function SocialIcon({ icon, label, href, color_hover, onClick }: Props) {
     const IconComponent = {Github, Linkedin, Mail}[icon];
 
     return (
         <a
             href={href}
+            onClick={onClick}
             aria-label={label}
             target={href.startsWith('#') ? undefined : '_blank'}
             rel={href.startsWith('#') ? undefined : 'noopener noreferrer'}

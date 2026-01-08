@@ -2,72 +2,39 @@
 
 import { ArrowRight, Download, X, ArrowUp } from "lucide-react";
 import SocialIcon from "./components/SocialIcon/SocialIcon";
-import Skill from "./components/Skill/Skill";
 import { useEffect, useRef, useState } from "react";
 import { Projects } from "@/models/Projects";
 import StockManagementProject from "./components/StockManagementProject/StockManagementProject";
 import CaloriesTracker from "./components/CaloriesTracker/CaloriesTracker";
+import SkillsSection from "./components/SkillsSection/SkillsSection";
 
 const projectsData: Projects[] = [
   {
     id: 'project-1',
-    title: 'Interactive Dashboard',
-    description: 'A responsive web application dashboard built with React and D3.js, featuring real-time data visualization, customizable widgets, and user authentication. It allows users to track key performance indicators and generate reports.',
+    title: 'Warehouse Management',
+    description: 'A responsive web application dashboard built with ReactJs and user authentication. It allows users to track key performance indicators and generate reports.',
     longDescription: 'This project involved complex state management, API integration, and performance optimization for large datasets. I focused on creating an intuitive user interface and ensuring cross-browser compatibility. Technologies used include React, Redux, D3.js, Node.js, Express, and MongoDB.',
-    techStack: ['React', 'Redux', 'D3.js', 'Node.js', 'Express', 'MongoDB'],
+    techStack: ['React (TypeScript)', 'MySQL', 'Node.js', 'JWT'],
     image: 'projects/project1.png',
     liveUrl: '#',
     githubUrl: '#'
   },
   {
     id: 'project-2',
-    title: 'E-commerce Platform',
-    description: 'Developed a full-stack e-commerce solution with product listings, shopping cart functionality, secure checkout, and admin panel for inventory management. Built with modern web technologies.',
-    longDescription: 'This platform integrates Stripe for payment processing and uses a microservices architecture for scalability.',
-    techStack: ['Next.js', 'Tailwind CSS', 'Node.js', 'PostgreSQL', 'Docker', 'Stripe'],
-    image: 'projects/project1.png',
+    title: 'University Class Management System',
+    description: "Software Engineering Capstone Project",
+    // subTitle: 'Software Engineering Capstone Project',
+    longDescription: 'A scalable, full-stack academic platform engineered to solve complex scheduling and resource management challenges. Unlike standard CRUD applications, this system features a robust backend architecture with automated CI/CD pipelines, ensuring rapid deployment and high availability. It serves as a centralized hub for students and lecturers to manage academic lifecycles efficiently.',
+    techStack: [
+      'React (TypeScript)',
+      'MySQL',
+      'Node.js',
+      'JWT'
+    ],
+    image: 'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?q=80&w=2070&auto=format&fit=crop',
     liveUrl: '#',
-    githubUrl: '#'
-  },
-  {
-    id: 'project-3',
-    title: 'Mobile Recipe App',
-    description: 'A cross-platform mobile application for discovering, saving, and managing recipes. Features include ingredient search, meal planning, and offline access. Developed using React Native.',
-    longDescription: 'The app provides a seamless user experience across iOS and Android devices. It incorporates a powerful search algorithm, allowing users to find recipes by ingredients, cuisine, or dietary preferences. Favorite recipes can be saved locally, and users can create custom meal plans. Technologies: React Native, Firebase, Expo.',
-    techStack: ['React Native', 'Firebase', 'Expo', 'JavaScript'],
-    image: 'projects/project1.png',
-    liveUrl: '#',
-    githubUrl: '#'
-  },
-  {
-    id: 'project-4',
-    title: 'AI Chatbot Integration',
-    description: 'Integrated a custom-trained AI chatbot into an existing customer support portal, enhancing user interaction and automating common queries. Utilized natural language processing.',
-    longDescription: 'This project focused on improving customer service efficiency by deploying a conversational AI. The chatbot can handle FAQs, guide users through troubleshooting steps, and escalate complex issues to human agents. Natural Language Understanding (NLU) was crucial for accurate intent intent recognition. Technologies: Python, Flask, TensorFlow, Dialogflow, React.',
-    techStack: ['Python', 'Flask', 'TensorFlow', 'Dialogflow', 'React', 'NLP'],
-    image: 'projects/project1.png',
-    liveUrl: '#',
-    githubUrl: '#'
-  },
-  {
-    id: 'project-5',
-    title: 'Game Development Project',
-    description: 'Developed a 2D platformer game using JavaScript and HTML Canvas. Features include character animation, collision detection, and multiple levels. Focused on game mechanics and performance.',
-    longDescription: 'This retro-style platformer emphasizes engaging gameplay and smooth mechanics. I designed all the level layouts, character sprites, and sound effects. The game engine was custom-built, demonstrating a deep understanding of core game development principles. Technologies: JavaScript, HTML Canvas, Web Audio API.',
-    techStack: ['JavaScript', 'HTML Canvas', 'Web Audio API', 'Game Development'],
-    image: 'projects/project1.png',
-    liveUrl: '#',
-    githubUrl: '#'
-  },
-  {
-    id: 'project-6',
-    title: 'Personal Portfolio Website',
-    description: 'The very website you are viewing! Designed and developed to showcase my skills, projects, and educational background. Focus on responsiveness and modern UI/UX principles.',
-    longDescription: 'This portfolio site is a testament to my front-end development capabilities. It features smooth scrolling, interactive elements, and a clean, minimalist design. I paid close attention to accessibility and performance optimization to ensure a positive user experience. Technologies: React, Tailwind CSS, Framer Motion (for animations).',
-    techStack: ['React', 'Tailwind CSS', 'TypeScript', 'Next.js'],
-    image: 'projects/project1.png',
-    liveUrl: '#',
-    githubUrl: '#'
+    githubUrl: '#',
+
   },
 ];
 
@@ -109,6 +76,18 @@ export default function Home() {
     window.addEventListener('scroll', () => setShowGoTop(window.pageYOffset > 50));
   }, [])
 
+  const MY_EMAIL = "vantho074@gmail.com";
+  const [copied, setCopied] = useState(false);
+
+  const handleCopy = () => {
+    navigator.clipboard.writeText(MY_EMAIL);
+    setCopied(true);
+
+    setTimeout(() => {
+      setCopied(false);
+    }, 2000);
+  };
+
   return (
     <main className="min-h-screen bg-white text-gray-800 relative overflow-hidden">
       <div className="absolute inset-0 overflow-hidden">
@@ -127,7 +106,7 @@ export default function Home() {
           aria-haspopup="true"
           aria-expanded={isOpenNav}
           aria-controls="main-menu"
-          className="w-12 h-12 rounded-full bg-blue-100 hover:bg-blue-200 focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all duration-300 relative"
+          className="cursor-pointer w-12 h-12 rounded-full bg-blue-100 hover:bg-blue-200 focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all duration-300 relative"
         >
           {isOpenNav ? (
             <X size={22} className="text-blue-700 mx-auto" />
@@ -213,10 +192,12 @@ export default function Home() {
                 Contact With Me
                 <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform duration-300" />
               </a>
-              <button className="group bg-white hover:bg-gray-50 text-gray-700 font-semibold py-4 px-8 rounded-full text-lg border-2 border-blue-200 hover:border-blue-300 transition-all duration-300 flex items-center gap-2" type="button">
+              <a href="./OngVanTho-CV.pdf"
+                download="OngVanTho-CV.pdf"
+                className="group cursor-pointer bg-white hover:bg-gray-50 text-gray-700 font-semibold py-4 px-8 rounded-full text-lg border-2 border-blue-200 hover:border-blue-300 transition-all duration-300 flex items-center gap-2" type="button">
                 <Download size={20} />
                 Download CV
-              </button>
+              </a>
             </div>
           </div>
         </div>
@@ -263,28 +244,7 @@ export default function Home() {
       </section>
 
       {/* Skills Section */}
-      <section id="skills" className="relative z-10 px-6 md:px-8 lg:px-16 py-20 bg-gray-50 scroll-mt-24">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold mb-4 text-gray-900">
-            Skills & Expertise
-          </h2>
-          <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-            I specialize in modern web technologies and frameworks that deliver exceptional user experiences
-          </p>
-        </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {[
-            { icon: 'Code', title: "Frontend Development", desc: "React, Next.js, TypeScript, Tailwind CSS", color: "from-blue-500 to-blue-600" },
-            { icon: 'Zap', title: "Performance", desc: "Optimization, SEO, fast loading times", color: "from-green-500 to-green-600" },
-            { icon: 'Globe', title: "Full-Stack", desc: "Node.js, databases, API development", color: "from-red-500 to-orange-600" },
-            { icon: 'GitPullRequest', title: 'Git', desc: "Can use git proficient", color: "from-gray-800 to-gray-800" }
-          ].map((skill, index) => (
-            <Skill key={index} icon={skill.icon} title={skill.title} color={skill.color} desc={skill.desc} />
-          ))}
-        </div>
-      </section>
-
+      <SkillsSection />
       {/* Contact Section */}
       <section id="contact" className="relative z-10 px-6 md:px-8 lg:px-16 py-20">
         <div className="text-center mb-16">
@@ -297,16 +257,22 @@ export default function Home() {
         </div>
 
         <div className="flex justify-center gap-6">
-          <SocialIcon icon="Github" label="GitHub" href="#" color_hover="hover:bg-gray-800" />
-          <SocialIcon icon="Linkedin" label="LinkedIn" href="#" color_hover="hover:bg-blue-600" />
-          <SocialIcon icon="Mail" label="Email" href="#" color_hover="hover:bg-red-600" />
+          <SocialIcon icon="Github" label="GitHub" href="https://github.com/O-VanTho-programmer" color_hover="hover:bg-gray-800" />
+          <SocialIcon icon="Linkedin" label="LinkedIn" href="https://www.linkedin.com/in/o-vantho-programmer/" color_hover="hover:bg-blue-600" />
+          <SocialIcon icon="Mail" label="Email" onClick={handleCopy} href="#contact" color_hover="hover:bg-red-600" />
         </div>
+
+        {copied && (
+          <div className="fixed top-0 left-0 bg-green-600 text-white text-base w-full py-4 px-2 shadow-lg animate-fade-in-up">
+            Email copied!
+          </div>
+        )}
       </section>
 
       {/* Footer */}
       <footer className="relative z-10 text-center py-8 border-t border-blue-200 bg-blue-50">
         <p className="text-blue-700">
-          © 2024 Van Tho. Built with ❤️ and Next.js
+          © 2024 Van Tho. Website Developer
         </p>
       </footer>
     </main>
