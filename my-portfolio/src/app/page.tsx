@@ -17,7 +17,7 @@ const projectsData: Projects[] = [
     longDescription: 'This project involved complex state management, API integration, and performance optimization for large datasets. I focused on creating an intuitive user interface and ensuring cross-browser compatibility. Technologies used include React, Redux, D3.js, Node.js, Express, and MongoDB.',
     techStack: ['React (TypeScript)', 'MySQL', 'Node.js', 'JWT'],
     image: 'projects/project1.png',
-    liveUrl: '#',
+    liveUrl: 'https://business-management-app-3z33.vercel.app/',
     githubUrl: 'https://github.com/O-VanTho-programmer/Business-Management-App'
   },
   {
@@ -34,7 +34,7 @@ const projectsData: Projects[] = [
       'TanStack Query'
     ],
     image: 'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?q=80&w=2070&auto=format&fit=crop',
-    liveUrl: '#',
+    liveUrl: 'https://class-management-vkgy-1czvb3r6n-o-vanthos-projects.vercel.app/',
     githubUrl: 'https://github.com/O-VanTho-programmer/ClassManagement.git',
 
   },
