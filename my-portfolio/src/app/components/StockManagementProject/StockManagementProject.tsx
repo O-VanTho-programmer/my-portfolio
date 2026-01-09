@@ -10,8 +10,6 @@ export default function StockManagementProject({ project }: Props) {
     // We update features to include the Scanner
     const features = [
         "Automated Invoice Scanning (OCR)",
-        "Real-time Inventory Tracking",
-        "Role-Based Access Control",
         "Low-Stock Alerts"
     ];
 
@@ -54,7 +52,7 @@ export default function StockManagementProject({ project }: Props) {
                     <div className="order-1 lg:order-2 flex flex-col justify-center space-y-6">
                         <div>
                             <span className="inline-block px-3 py-1 text-xs font-bold tracking-wider text-blue-600 uppercase bg-blue-100 rounded-full mb-4">
-                                Featured Case Study
+                                {project.description}
                             </span>
                             
                             <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4 leading-tight">

@@ -7,40 +7,42 @@ import { Projects } from "@/models/Projects";
 import StockManagementProject from "./components/StockManagementProject/StockManagementProject";
 import CaloriesTracker from "./components/CaloriesTracker/CaloriesTracker";
 import SkillsSection from "./components/SkillsSection/SkillsSection";
+import TutorDesk from "./components/TutorDeskProject/TutorDeskProject";
 
 const projectsData: Projects[] = [
   {
     id: 'project-1',
     title: 'Warehouse Management',
-    description: 'A responsive web application dashboard built with ReactJs and user authentication. It allows users to track key performance indicators and generate reports.',
+    description: 'Personal Project',
     longDescription: 'This project involved complex state management, API integration, and performance optimization for large datasets. I focused on creating an intuitive user interface and ensuring cross-browser compatibility. Technologies used include React, Redux, D3.js, Node.js, Express, and MongoDB.',
     techStack: ['React (TypeScript)', 'MySQL', 'Node.js', 'JWT'],
     image: 'projects/project1.png',
     liveUrl: '#',
-    githubUrl: '#'
+    githubUrl: 'https://github.com/O-VanTho-programmer/Business-Management-App'
   },
   {
     id: 'project-2',
-    title: 'University Class Management System',
-    description: "Software Engineering Capstone Project",
-    // subTitle: 'Software Engineering Capstone Project',
-    longDescription: 'A scalable, full-stack academic platform engineered to solve complex scheduling and resource management challenges. Unlike standard CRUD applications, this system features a robust backend architecture with automated CI/CD pipelines, ensuring rapid deployment and high availability. It serves as a centralized hub for students and lecturers to manage academic lifecycles efficiently.',
+    title: 'Class Management - TutorDesk',
+    description: "Capstone Project",
+    longDescription: 'A comprehensive, full-stack class management application built with Next.js 15, TypeScript, and MySQL. This system enables educational institutions and teachers to efficiently manage teaching hubs, classes, students, attendance, homework, and teacher workloads with AI-powered automated grading capabilities.',
     techStack: [
       'React (TypeScript)',
       'MySQL',
       'Node.js',
-      'JWT'
+      'JWT',
+      'Cloudinary',
+      'TanStack Query'
     ],
     image: 'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?q=80&w=2070&auto=format&fit=crop',
     liveUrl: '#',
-    githubUrl: '#',
+    githubUrl: 'https://github.com/O-VanTho-programmer/ClassManagement.git',
 
   },
 ];
 
 export default function Home() {
   const stockManagementProjectData = projectsData[0];
-  const caloriesTrackerData = projectsData[1];
+  const tutorDesk = projectsData[1];
 
   const [isOpenNav, setIsOpenNav] = useState(false);
   const menuRef = useRef<HTMLUListElement | null>(null);
@@ -225,7 +227,7 @@ export default function Home() {
 
       <StockManagementProject project={stockManagementProjectData} />
 
-      <CaloriesTracker project={caloriesTrackerData} />
+      <TutorDesk project={tutorDesk} />
 
       {/* Education */}
       <section id="education" className="relative z-10 px-6 md:px-8 lg:px-16 py-20 scroll-mt-24">
